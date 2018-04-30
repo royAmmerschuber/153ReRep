@@ -1,0 +1,13 @@
+RewriteEngine On
+
+RewriteBase /153ReRep/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{QUERY_STRING} ^(.+)$
+RewriteRule    ^(.*)$ /153ReRep/index.php?path=$1&%1 [L]
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule    ^(.*)$ /153ReRep/index.php?path=$1 [L]
