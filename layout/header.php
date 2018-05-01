@@ -9,37 +9,19 @@
                 <a class="nav-link" href="/153ReRep/Main/index">Home <span class="sr-only">(current)</span></a>
             </li>
             <?php
-                if(isset($_SESSION["uid"])){
-                    echo
-                    "<li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"/153ReRep/Auth/logout\">Logout</a>
-                    </li>
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"/153ReRep/Auth/edit\">edit User</a>
-                    </li>
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"/153ReRep/Video/upload\">Upload</a>
-                    </li>
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"/153ReRep/Main/favorites\">Favorites</a>
-                    </li>";
-                }else{
-                    echo
-                    "<!--<li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"/153ReRep/Auth/register\">Register</a>
-                    </li>-->
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"/153ReRep/Auth/login\">Login</a>
-                    </li>
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link disabled\">Upload</a>
-                    </li>
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link disabled\">Favorites</a>
-                    </li>
-                    ";
-                }
+            if(isset($_SESSION["ulvl"])){
+                if($_SESSION["ulvl"]==1){
 
+                }
+                if($_SESSION["ulvl"]==2){
+                    echo "<li class=\"nav-item active\">";
+                    echo "<a class=\"nav-link\" href=\"/153ReRep/Auth/newUser\">new User<span class=\"sr-only\">(current)</span></a>";
+                    echo "</li>";
+                }
+                echo "<li class=\"nav-item active\">";
+                echo "<a class=\"nav-link\" href=\"/153ReRep/Auth/logout\">logout<span class=\"sr-only\">(current)</span></a>";
+                echo "</li>";
+            }
             ?>
             <!--<li class="nav-item">
                 <a class="nav-link disabled" href="#">Disabled</a>

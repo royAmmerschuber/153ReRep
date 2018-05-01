@@ -107,4 +107,6 @@ body > div{
   width: 256px;
   z-index: 100;
 }
-
+.edit-frame{
+  position: absolute;/* background: #dedede; */width: 75%;height: 75%;border-radius: 30px;left: 10%;box-shadow: 5px 5px 20px 10px green, -5px -5px 20px 10px red;
+}

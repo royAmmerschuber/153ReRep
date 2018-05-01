@@ -10,6 +10,7 @@ class Main
 {
     public function index(){
         Auth::securePage();
+        include_once "layout/main.php";
     }
 
 }

@@ -34,10 +34,19 @@ class Database{
         return $this->pdo;
     }
 
-    public function query(String $stmt,array $params):PDOStatement{
+    public function query(String $stmt,array $params=array()):PDOStatement{
         $p=$this->pdo->prepare($stmt);
-        foreach ($params as $key => $value){
-            $p->bindParam($key,$value);
+        foreach (array_keys($params) as $key ){
+            /*echo "<pre>";
+            echo $key;
+            echo "</pre>";
+            echo "<pre>";
+            echo $params[$key];
+            echo "</pre>";
+            echo "<pre>";
+            print_r($params);
+            echo "</pre>";*/
+            $p->bindParam($key,$params[$key], PDO::PARAM_STR);
         }
         $p->execute();
         return $p;
@@ -56,7 +65,7 @@ class Database{
                     id int not null Primary Key Auto_Increment,
                     roleFK int not null,
                     name varchar(64) not null,
-                    password varchar(256) not null,
+                    password varchar(256),
                     FOREIGN KEY (roleFK) references URole(id) on delete restrict on update restrict
                 );
                 
@@ -127,7 +136,7 @@ class Database{
                     FOREIGN KEY (employeeFK) references `User`(id) on delete cascade on update restrict
                 );
                 insert into URole(level, name) values (0,'employee'),(1,'approver'),(2,'admin');
-                insert into `153`.user(roleFK, name, password) value (3,'admin','$2y$10\$rr7/dk3XnFgPSruOJwd9cuZOVFQH.cj7TzCSZFqcCO5tH8Xggr4hy')"
+                insert into `153`.user(roleFK, name) value (3,'admin')"
         );
         //admin password=x
     }

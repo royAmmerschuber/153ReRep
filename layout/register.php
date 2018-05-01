@@ -29,6 +29,19 @@
         <input type="text" id="inputName" class="form-control" placeholder="User Name" name="user" required autofocus>
         <label for="inputName">User Name</label>
     </div>
+    <p class="err" id="eRole"></p>
+    <div class="form-label-group">
+        <select type="text" id="inputRole" class="form-control" placeholder="User Name" name="user" required autofocus>
+            <?php
+            foreach($roles as $r){
+                $id=$r["id"];
+                $name=$r["name"];
+                $level=$r["level"];
+                echo "<option value='$id'>$level    $name</option>";
+            }
+            ?>
+        </select>
+        </div>
 
     <p class="err" id="ePassword1"></p>
     <div class="form-label-group">
