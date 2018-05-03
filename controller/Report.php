@@ -12,9 +12,43 @@ class Report
         $this->new();
     }
     public function new(){
-        include_once "layout/newReport";
+        include_once "layout/newReport.php";
     }
     public function newCheck(){
+        Auth::securePage();
+    }
 
+    public function newCustomer(){
+        include_once "layout/newCustomer.php";
+    }
+    public function newCustomerCheck(){
+        Auth::securePage();
+        $out=array();
+        $out["success"]=false;
+        if(isset($_POST["name"])){
+            Database::instance()->query("insert into customer(name) values (:name)",array(
+                ":name"=>$_POST["name"]
+            ));
+            $out["success"]=true;
+        }else{
+            $out["eName"]="name not set";
+        }
+
+        echo json_encode($out);
+    }
+
+    public function loadData(){
+        Auth::securePage();
+        switch($_POST["area"]){
+            case "customer":{
+                $p=Database::instance()->query("select * from customer");
+                $a=$p->fetchAll(PDO::FETCH_ASSOC);
+                $o=array();
+                foreach ($a as $v){
+                    $o[$v["id"]]=$v["name"];
+                }
+                echo json_encode($o);
+            }break;
+        };
     }
 }

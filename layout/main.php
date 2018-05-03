@@ -7,41 +7,20 @@
 </head>
 <body>
 <?php include_once "header.php" ?>
-
 <div>
     <div>
-        <button onclick="newReportWin()">create new report</button>
+
+        <button onclick="newReportWin('<?php $panelname="edit-main";echo $panelname ?>')">create new report</button>
+
 
     </div>
     <div>
 
     </div>
-    <div class="edit-frame">
-        <button id="btnClose" class="btn-primary" onclick="closeEditFrame()">X</button>
-        <div id="content-frame">
-
-        </div>
-    </div>
+    <?php include_once "popup.php"?>
 </div>
 
 
 <?php include_once "footer.php" ?>
-<?php
-
-if(!isset($fav)){
-    $fav="";
-}
-if(isset($_GET["search"])){
-    echo "<script>loadListS(\"".$_GET["search"]."\",\"$fav\");";
-
-}else{
-    echo "<script>loadList(\"$fav\");";
-}
-?>
-$(document).ready(function(){
-$("#searchSubmit")[0].onclick=null;
-$("#searchSubmit").click(loadList);
-});
-</script>
 </body>
 </html>
