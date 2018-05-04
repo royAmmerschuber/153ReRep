@@ -100,7 +100,7 @@ class Database{
                 );
                 Create table Activity(
                     id int not null Primary Key Auto_Increment,
-                    reportFK int not null,
+                    reportFK int,
                     typeFK int not null,
                     locationFK int not null,
                     name varchar(64) not null,

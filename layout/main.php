@@ -17,8 +17,8 @@
     <div>
 
     </div>
-    <?php include_once "popup.php"?>
 </div>
+<?php include_once "popup.php"?>
 
 
 <?php include_once "footer.php" ?>

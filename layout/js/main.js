@@ -16,7 +16,7 @@ function saveCustomer(frame){
                 loaddata("customer");
                 closeEditFrame(frame);
             }
-
+//TODO
         }
     });
 }
@@ -27,6 +27,14 @@ function newReportWin(frame){
 function saveReport(frame){
     console.log(frame);
 }
+
+function newActivityWin(frame){
+    openWindow(frame,"/153ReRep/Report/newActivity","Activity",checkActivity);
+}
+function checkActivity(frame){
+    console.log(frame);
+}
+
 
 function loaddata(area){
     $.ajax({

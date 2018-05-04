@@ -6,15 +6,14 @@
 <label for="txtName"></label>
 <select class="select-customer">
 
-</select>
+</select><button onclick="newCustomerWin('<?php $panelname = "edit-report";echo $panelname ?>')">new</button>
 <div>
     <div>
+        <button onclick="newActivityWin('<?php echo $panelname?>')">add</button>
 
     </div>
     <div>
-        <div><input type="text" placeholder="description"></div>
+        <div><p id="type">testbla</p><p id="description">mdmjnfdfkmjnhdfdnhhmzdfsg</p><button id="remove">remove</button></div>
     </div>
 </div>
-<button onclick="newCustomerWin('<?php $panelname = "edit-report";echo $panelname ?>')">new</button>
-
 <?php include_once "popup.php";?>

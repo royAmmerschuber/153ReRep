@@ -37,6 +37,13 @@ class Report
         echo json_encode($out);
     }
 
+    public function newActivity(){
+        include_once "layout/newActivity.php";
+    }
+    public function checkActivity(){
+
+    }
+
     public function loadData(){
         Auth::securePage();
         switch($_POST["area"]){
